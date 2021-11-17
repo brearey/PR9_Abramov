@@ -50,7 +50,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun api_key(city: String) {
-        val url = "https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=1b47ad3333bd70d8cda1d025e53a2c33"
+        val url = "https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=1b47ad3333bd70d8cda1d025e53a2c33&units=metric"
 
         val client = OkHttpClient()
         val request = Request.Builder()
@@ -90,7 +90,7 @@ class MainActivity : AppCompatActivity() {
                         val temperature: Double = temp1.getDouble("temp")
 
                         setText(view_city, city)
-                        val temps: String = "${Math.round(temperature - 273.15)} °C"
+                        val temps: String = "${Math.round(temperature)} °C"
                         setText(view_temp, temps)
                         setText(view_desc, description)
                         setImage(view_weather, icons)
